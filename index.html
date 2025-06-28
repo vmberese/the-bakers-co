@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Breads</title>
+  <title>The Baker’s Co.</title>
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
@@ -11,37 +11,35 @@
     body {
       font-family: 'Montserrat', Futura, sans-serif;
     }
-    .category-header {
-      font-size: 1.25rem;
-      font-weight: bold;
+    .hero {
+      padding-top: 120px;
+      padding-bottom: 60px;
+      text-align: center;
     }
-    .category-price {
-      font-size: 1rem;
-      color: #3f8f24;
-      margin-left: 0.5rem;
+    .hero-logo {
+      width: 120px;
+      height: auto;
+      margin-bottom: 1rem;
     }
-    .category-desc {
+    .hero-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+    }
+    .hero-subtitle {
       font-size: 1rem;
       color: #555;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
     }
-    .item-card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-      margin-bottom: 1rem;
-      padding: 1rem;
-    }
-    .item-title {
-      font-weight: 500;
-    }
-
-    .item-price {
+    .nav-links a {
+      display: inline-block;
+      margin: 0.5rem 1rem;
+      font-weight: 600;
       color: #3f8f24;
-      font-weight: 500;
-      font-size: 0.95rem;
+      text-decoration: none;
     }
-
+    .nav-links a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
 <body class="d-flex flex-column min-vh-100">
@@ -58,7 +56,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <div class="navbar-nav ms-auto">
-        <a class="nav-link active" href="/the-bakers-co/breads">Breads</a>
+        <a class="nav-link" href="/the-bakers-co/breads.html">Breads</a>
         <a class="nav-link" href="/the-bakers-co/drinks">Drinks</a>
         <a class="nav-link" href="/the-bakers-co/about">About Us</a>
       </div>
@@ -66,79 +64,15 @@
   </div>
 </nav>
 
-<main class="container flex-grow-1 mt-5 pt-4">
-  <h2 class="mt-4 mb-3">Breads</h2>
+<main class="container hero flex-grow-1">
+  <img src="logo.png" alt="The Baker’s Co. Logo" class="hero-logo" />
+  <div class="hero-title">Yours. Made Daily.</div>
+  <div class="hero-subtitle">Freshly baked and thoughtfully poured — made just for you.</div>
 
-  <div class="category-section mt-4">
-    <div class="category-header">
-      Rolls
-    </div>
-    <div class="category-desc">Soft and warm, daily-made comfort.</div>
-
-    <div>
-      <div class="item-card">
-        <div class="item-title-row">
-          <div class="item-title">Classic Dinner Roll</div>
-          <div class="item-price">₱15</div>
-        </div>
-        <div class="text-muted small">Fluffy, buttery, and golden baked.</div>
-      </div>
-      <div class="item-card">
-        <div class="item-title-row">
-          <div class="item-title">Garlic Roll</div>
-          <div class="item-price">₱25</div>
-        </div>
-        <div class="text-muted small">Savory and aromatic, baked with real garlic bits.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="category-section mt-4">
-    <div class="category-header">
-      Loaves
-    </div>
-    <div class="category-desc">Hearty and sliceable — perfect for sharing.</div>
-
-    <div>
-      <div class="item-card">
-        <div class="item-title-row">
-          <div class="item-title">Sourdough</div>
-          <div class="item-price">₱65</div>
-        </div>
-        <div class="text-muted small">Crusty outside, soft and tangy inside.</div>
-      </div>
-      <div class="item-card">
-        <div class="item-title-row">
-          <div class="item-title">Whole Wheat</div>
-          <div class="item-price">₱45</div>
-        </div>
-        <div class="text-muted small">Nutty, rich, and 100% whole grain.</div>
-      </div>
-    </div>
-  </div>
-
-  <div class="category-section mt-4">
-    <div class="category-header">
-      Sweet Breads
-    </div>
-    <div class="category-desc">A little indulgence with every bite.</div>
-
-    <div>
-      <div class="item-card">
-        <div class="item-title-row">
-          <div class="item-title">Ensaymada</div>
-          <div class="item-price">₱35</div>
-        </div>
-        <div class="text-muted small">Light, buttery, and topped with cheese.</div>
-      </div>
-      <div class="item-card">
-        <div class="item-title-row">
-          <div class="item-title">Chocolate Babka</div>
-          <div class="item-price">₱50</div>
-        </div>
-        <div class="text-muted small">Swirls of dark chocolate in soft dough.</div>
-      </div>
-    </div>
+  <div class="nav-links">
+    <a href="/the-bakers-co/breads">View Breads</a>
+    <a href="/the-bakers-co/drinks">View Drinks</a>
+    <a href="/the-bakers-co/about">About Us</a>
   </div>
 </main>
 
