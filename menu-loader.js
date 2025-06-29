@@ -57,7 +57,7 @@ class MenuLoader {
     });
 
     // Remove centering classes and set proper styling for menu content
-    container.className = '';
+    container.className = 'mt-5 pt-4';
     container.style.minHeight = 'auto';
     container.innerHTML = html;
   }
@@ -97,7 +97,7 @@ class MenuLoader {
     });
 
     // Remove centering classes and set proper styling for menu content
-    container.className = '';
+    container.className = 'mt-5 pt-4';
     container.style.minHeight = 'auto';
     container.innerHTML = html;
   }
