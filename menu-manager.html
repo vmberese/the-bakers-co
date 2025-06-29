@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Menu Manager - The Bakers' Co.</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet" />
+  <style>
+    .json-editor {
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      min-height: 500px;
+    }
+    .preview-section {
+      border-left: 3px solid #3f8f24;
+      padding-left: 1rem;
+      margin-left: 1rem;
+    }
+  </style>
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<div id="navigation"></div>
+
+<main class="container flex-grow-1 mt-5 pt-4">
+  <div class="row">
+    <div class="col-md-6">
+      <h2 class="mt-4 mb-3">Menu Manager</h2>
+      <p class="text-muted">Edit your menu data below. The JSON will be automatically validated.</p>
+      
+      <div class="mb-3">
+        <label for="jsonEditor" class="form-label">Menu JSON Data:</label>
+        <textarea id="jsonEditor" class="form-control json-editor" rows="30"></textarea>
+      </div>
+      
+      <div class="d-flex gap-2 mb-3">
+        <button id="loadBtn" class="btn btn-primary">Load Current Data</button>
+        <button id="validateBtn" class="btn btn-secondary">Validate JSON</button>
+        <button id="downloadBtn" class="btn btn-success">Download JSON</button>
+      </div>
+      
+      <div id="status" class="alert" style="display: none;"></div>
+    </div>
+    
+    <div class="col-md-6">
+      <div class="preview-section">
+        <h3>Live Preview</h3>
+        <p class="text-muted">See how your changes will look:</p>
+        
+        <div class="mb-3">
+          <label class="form-label">Preview Type:</label>
+          <select id="previewType" class="form-select">
+            <option value="breads">Breads</option>
+            <option value="drinks">Drinks</option>
+          </select>
+        </div>
+        
+        <div id="preview" class="border rounded p-3 bg-light">
+          <div class="text-center text-muted">
+            <p>Select a preview type to see the rendered menu</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<div id="footer"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="components.js"></script>
+<script src="menu-loader.js"></script>
+<script>
+// Menu Manager functionality
+class MenuManager {
+  constructor() {
+    this.jsonEditor = document.getElementById('jsonEditor');
+    this.loadBtn = document.getElementById('loadBtn');
+    this.validateBtn = document.getElementById('validateBtn');
+    this.downloadBtn = document.getElementById('downloadBtn');
+    this.status = document.getElementById('status');
+    this.previewType = document.getElementById('previewType');
+    this.preview = document.getElementById('preview');
+    
+    this.setupEventListeners();
+    this.loadCurrentData();
+  }
+
+  setupEventListeners() {
+    this.loadBtn.addEventListener('click', () => this.loadCurrentData());
+    this.validateBtn.addEventListener('click', () => this.validateJSON());
+    this.downloadBtn.addEventListener('click', () => this.downloadJSON());
+    this.previewType.addEventListener('change', () => this.updatePreview());
+    this.jsonEditor.addEventListener('input', () => this.updatePreview());
+  }
+
+  async loadCurrentData() {
+    try {
+      const response = await fetch('data/menu.json');
+      const data = await response.json();
+      this.jsonEditor.value = JSON.stringify(data, null, 2);
+      this.showStatus('Data loaded successfully!', 'success');
+      this.updatePreview();
+    } catch (error) {
+      this.showStatus('Error loading data: ' + error.message, 'danger');
+    }
+  }
+
+  validateJSON() {
+    try {
+      const data = JSON.parse(this.jsonEditor.value);
+      this.showStatus('JSON is valid!', 'success');
+      return true;
+    } catch (error) {
+      this.showStatus('Invalid JSON: ' + error.message, 'danger');
+      return false;
+    }
+  }
+
+  downloadJSON() {
+    if (!this.validateJSON()) return;
+    
+    const dataStr = this.jsonEditor.value;
+    const dataBlob = new Blob([dataStr], {type: 'application/json'});
+    const url = URL.createObjectURL(dataBlob);
+    
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'menu.json';
+    link.click();
+    
+    URL.revokeObjectURL(url);
+    this.showStatus('JSON file downloaded!', 'success');
+  }
+
+  updatePreview() {
+    if (!this.validateJSON()) {
+      this.preview.innerHTML = '<div class="text-center text-danger"><p>Invalid JSON - cannot preview</p></div>';
+      return;
+    }
+
+    try {
+      const data = JSON.parse(this.jsonEditor.value);
+      const menuLoader = new MenuLoader();
+      menuLoader.menuData = data;
+      
+      // Create a temporary container for preview
+      const tempContainer = document.createElement('div');
+      tempContainer.id = 'temp-preview';
+      
+      if (this.previewType.value === 'breads') {
+        menuLoader.renderBreadsMenu('temp-preview');
+      } else {
+        menuLoader.renderDrinksMenu('temp-preview');
+      }
+      
+      this.preview.innerHTML = tempContainer.innerHTML;
+      this.showStatus('Preview updated!', 'success');
+    } catch (error) {
+      this.preview.innerHTML = '<div class="text-center text-danger"><p>Error rendering preview</p></div>';
+    }
+  }
+
+  showStatus(message, type) {
+    this.status.textContent = message;
+    this.status.className = `alert alert-${type}`;
+    this.status.style.display = 'block';
+    
+    setTimeout(() => {
+      this.status.style.display = 'none';
+    }, 3000);
+  }
+}
+
+// Initialize menu manager when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+  new MenuManager();
+});
+</script>
+</body>
+</html> 

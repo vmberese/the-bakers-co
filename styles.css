@@ -1,0 +1,99 @@
+/* Common styles for The Bakers' Co. */
+
+body {
+  font-family: 'Montserrat', Futura, sans-serif;
+}
+
+/* Hero section styles */
+.hero {
+  padding-top: 120px;
+  padding-bottom: 60px;
+  text-align: center;
+}
+
+.hero-logo {
+  width: 120px;
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+.hero-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.hero-subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 2rem;
+}
+
+.nav-links a {
+  display: inline-block;
+  margin: 0.5rem 1rem;
+  font-weight: 600;
+  color: #3f8f24;
+  text-decoration: none;
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+/* About page styles */
+.about-logo {
+  width: 120px;
+  height: auto;
+  margin: 1rem 0;
+}
+
+.about-text {
+  font-size: 1.05rem;
+  color: #333;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Menu page styles */
+.category-header {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.category-price {
+  font-size: 1rem;
+  color: #3f8f24;
+  margin-left: 0.5rem;
+}
+
+.category-desc {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.item-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.item-title {
+  font-weight: 600;
+}
+
+.item-price {
+  color: #3f8f24;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.item-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+} 
