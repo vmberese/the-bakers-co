@@ -1,4 +1,4 @@
-// Menu loader for The Bakers' Co.
+// Menu loader for The Bakers’ Co.
 class MenuLoader {
   constructor() {
     this.menuData = null;

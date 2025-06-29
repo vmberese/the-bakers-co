@@ -1,4 +1,4 @@
-# The Bakers' Co. - Component System
+# The Bakers’ Co. - Component System
 
 This project now uses a JavaScript-based component system to eliminate code duplication and make it easier to create new pages. It also includes a JSON-based menu system for easy content management.
 

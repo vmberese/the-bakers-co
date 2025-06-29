@@ -1,4 +1,4 @@
-// Component loader for The Bakers' Co.
+// Component loader for The Bakers’ Co.
 class ComponentLoader {
   constructor() {
     this.components = {};
@@ -68,8 +68,8 @@ componentLoader.register('navigation', `
 <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom fixed-top">
   <div class="container-fluid">
     <a class="navbar-brand d-flex align-items-center gap-2" href="{{basePath}}/">
-      <img src="logo.png" alt="The Bakers' Co. Logo" width="60" height="60" class="d-inline-block align-text-top">
-      The Bakers' Co.
+      <img src="logo.png" alt="The Bakers’ Co. Logo" width="60" height="60" class="d-inline-block align-text-top">
+      The Bakers’ Co.
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,7 +88,7 @@ componentLoader.register('navigation', `
 
 componentLoader.register('footer', `
 <footer class="text-center py-3 mt-auto text-muted border-top bg-white" style="font-size: 0.9rem;">
-  &copy; The Bakers' Co. 2025
+  &copy; The Bakers’ Co. 2025
 </footer>
 `);
 
