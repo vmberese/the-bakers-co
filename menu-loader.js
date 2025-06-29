@@ -56,6 +56,9 @@ class MenuLoader {
       `;
     });
 
+    // Remove centering classes and set proper styling for menu content
+    container.className = '';
+    container.style.minHeight = 'auto';
     container.innerHTML = html;
   }
 
@@ -93,6 +96,9 @@ class MenuLoader {
       `;
     });
 
+    // Remove centering classes and set proper styling for menu content
+    container.className = '';
+    container.style.minHeight = 'auto';
     container.innerHTML = html;
   }
 
