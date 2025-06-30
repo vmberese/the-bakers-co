@@ -3,29 +3,29 @@ class ComponentLoader {
   constructor() {
     this.components = {};
     this.basePath = this.detectBasePath();
-    this.isLocal = this.detectIsLocal();
   }
 
   // Detect if we're running locally or on GitHub Pages
   detectBasePath() {
     const hostname = window.location.hostname;
     const pathname = window.location.pathname;
+    
+    // If running on localhost (Live Server), use relative paths
     if (hostname === 'localhost' || hostname === '127.0.0.1') {
       return '';
     }
+    
+    // If running on GitHub Pages, use the repository name as base path
     if (hostname.includes('github.io')) {
+      // Extract repo name from pathname (e.g., /the-bakers-co/ -> /the-bakers-co)
       const pathParts = pathname.split('/').filter(part => part);
       if (pathParts.length > 0) {
         return `/${pathParts[0]}`;
       }
     }
+    
+    // Fallback to empty string for other hosting scenarios
     return '';
-  }
-
-  // Detect if running locally
-  detectIsLocal() {
-    const hostname = window.location.hostname;
-    return (hostname === 'localhost' || hostname === '127.0.0.1');
   }
 
   // Register a component
@@ -56,17 +56,6 @@ class ComponentLoader {
     // Replace base path placeholders
     template = template.replace(/\{\{basePath\}\}/g, this.basePath);
 
-    // Replace .html extension for local only
-    if (this.isLocal) {
-      template = template.replace(/\{\{breadsLink\}\}/g, 'breads.html');
-      template = template.replace(/\{\{drinksLink\}\}/g, 'drinks.html');
-      template = template.replace(/\{\{aboutLink\}\}/g, 'about.html');
-    } else {
-      template = template.replace(/\{\{breadsLink\}\}/g, 'breads');
-      template = template.replace(/\{\{drinksLink\}\}/g, 'drinks');
-      template = template.replace(/\{\{aboutLink\}\}/g, 'about');
-    }
-
     target.innerHTML = template;
   }
 }
@@ -88,9 +77,9 @@ componentLoader.register('navigation', `
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <div class="navbar-nav ms-auto">
-        <a class="nav-link {{breadsActive}}" href="{{basePath}}/{{breadsLink}}">Breads</a>
-        <a class="nav-link {{drinksActive}}" href="{{basePath}}/{{drinksLink}}">Drinks</a>
-        <a class="nav-link {{aboutActive}}" href="{{basePath}}/{{aboutLink}}">About Us</a>
+        <a class="nav-link {{breadsActive}}" href="{{basePath}}/breads.html">Breads</a>
+        <a class="nav-link {{drinksActive}}" href="{{basePath}}/drinks.html">Drinks</a>
+        <a class="nav-link {{aboutActive}}" href="{{basePath}}/about.html">About Us</a>
       </div>
     </div>
   </div>
