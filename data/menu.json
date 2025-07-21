@@ -34,25 +34,6 @@
     "title": "Drinks",
     "categories": [
       {
-        "name": "Coolers",
-        "priceRange": "(₱29 · ₱39 · ₱45)",
-        "description": "Light, refreshing, iced.",
-        "items": [
-          {
-            "name": "Strawberry",
-            "description": "Chilled clarity with a subtle berry breeze."
-          },
-          {
-            "name": "Lychee",
-            "description": "Softly floral, barely sweet — just enough."
-          },
-          {
-            "name": "Green Apple",
-            "description": "Crisp green apple in its quietest form."
-          }
-        ]
-      },
-      {
         "name": "Fruit Sodas",
         "priceRange": "(₱34 · ₱44 · ₱50)",
         "description": "Fizzy, vibrant, alive.",
