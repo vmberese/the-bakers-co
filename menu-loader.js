@@ -81,7 +81,14 @@ class MenuLoader {
       category.items.forEach(item => {
         html += `
           <div class="item-card">
-            <div class="item-title">${item.name}</div>
+            ${item.price ? `
+              <div class="item-title-row">
+                <div class="item-title">${item.name}</div>
+                <div class="item-price">${item.price}</div>
+              </div>
+            ` : `
+              <div class="item-title">${item.name}</div>
+            `}
             <div class="text-muted small">${item.description}</div>
           </div>
         `;
