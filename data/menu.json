@@ -51,7 +51,74 @@
             "description": "Electric green apple, perfectly tuned."
           }
         ]
+      },
+      {
+        "name": "Coffee-Based",
+        "description": "Bold brews with a creamy twist.",
+        "items": [
+          {
+            "name": "Spanish Latte",
+            "price": "₱80",
+            "description": "Sweet condensed milk meets bold espresso."
+          },
+          {
+            "name": "French Vanilla",
+            "price": "₱80",
+            "description": "Smooth vanilla-kissed coffee, light and fragrant."
+          },
+          {
+            "name": "Tiramisu",
+            "price": "₱80",
+            "description": "Coffee and cocoa in a creamy, dessert-inspired blend."
+          },
+          {
+            "name": "Caramel Macchiato",
+            "price": "₱80",
+            "description": "Rich caramel layered over velvety espresso."
+          },
+          {
+            "name": "White Mocha",
+            "price": "₱80",
+            "description": "White chocolate sweetness with a coffee kick."
+          },
+          {
+            "name": "Hazelnut",
+            "price": "₱80",
+            "description": "Nutty, aromatic, and perfectly balanced."
+          },
+          {
+            "name": "Biscoff Latte",
+            "price": "₱180",
+            "description": "Warm spiced Biscoff blended into creamy latte."
+          }
+        ]
+      },
+      {
+        "name": "Non-Coffee",
+        "description": "All the flavor, none of the caffeine.",
+        "items": [
+          {
+            "name": "Pink Thai Milk",
+            "price": "₱60",
+            "description": "Sweet and creamy Thai milk with a rosy hue."
+          },
+          {
+            "name": "Strawberry Milk",
+            "price": "₱80",
+            "description": "Classic strawberry milk, fresh and fruity."
+          },
+          {
+            "name": "Biscoff Milk",
+            "price": "₱150",
+            "description": "Rich Biscoff flavor in a smooth, milky blend."
+          },
+          {
+            "name": "Matcha Oat Latte",
+            "price": "₱150",
+            "description": "Earthy matcha paired with creamy oat milk."
+          }
+        ]
       }
     ]
   }
-} 
+}
