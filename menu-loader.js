@@ -7,7 +7,12 @@ class MenuLoader {
   // Load menu data from JSON file
   async loadMenuData() {
     try {
-      const response = await fetch('data/menu.json');
+      // Prevent caching: use timestamp cache-busting + no-store directive
+      // This ensures users always see the latest menu without hard refresh
+      const timestamp = new Date().getTime();
+      const response = await fetch(`data/menu.json?v=${timestamp}`, {
+        cache: 'no-store'
+      });
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
