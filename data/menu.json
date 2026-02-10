@@ -3,28 +3,51 @@
     "title": "Breads",
     "categories": [
       {
-        "name": "Sweet Breads",
-        "description": "A little indulgence with every bite.",
+        "name": "Cookies",
+        "description": "Freshly baked, perfectly crisp.",
+        "items": [
+          {
+            "name": "Chocolate Chip (50g)",
+            "price": "₱40",
+            "description": "Classic chocolate chip cookies with generous chunks of chocolate."
+          }
+        ]
+      },
+      {
+        "name": "Classic Pies",
+        "description": "Timeless favorites in every slice.",
+        "items": [
+          {
+            "name": "Egg Pie",
+            "price": "₱50",
+            "description": "Smooth custard filling in a buttery crust."
+          }
+        ]
+      },
+      {
+        "name": "Cakes",
+        "description": "Sweet celebrations in every layer.",
+        "items": [
+          {
+            "name": "Yema Cake",
+            "price": "₱120",
+            "description": "Moist sponge cake filled with rich yema custard."
+          },
+          {
+            "name": "Banana Cake",
+            "price": "₱130",
+            "description": "Soft, moist cake with natural banana sweetness."
+          }
+        ]
+      },
+      {
+        "name": "Rolls & Pastries",
+        "description": "Warm, fluffy, irresistible.",
         "items": [
           {
             "name": "Cinnamon Rolls",
-            "price": "₱120",
+            "price": "₱130",
             "description": "Soft, fluffy rolls swirled with cinnamon and topped with sweet glaze."
-          },
-          {
-            "name": "Yema Cake (Large)",
-            "price": "₱200",
-            "description": "Moist sponge cake filled with rich yema custard, perfect for sharing."
-          },
-          {
-            "name": "Yema Cake (Medium)",
-            "price": "₱100",
-            "description": "Moist sponge cake filled with rich yema custard, perfect for sharing."
-          },
-          {
-            "name": "Syento Cookies",
-            "price": "₱70",
-            "description": "Classic butter cookies with a perfect crumb and subtle sweetness."
           }
         ]
       }
