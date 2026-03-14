@@ -108,14 +108,60 @@ class MenuLoader {
     container.innerHTML = html;
   }
 
+  // Render wings menu
+  renderWingsMenu(containerId) {
+    const container = document.getElementById(containerId);
+    if (!container || !this.menuData) return;
+
+    const wingsData = this.menuData.wings;
+    let html = `<h2 class="mt-4 mb-3">${wingsData.title}</h2>`;
+
+    wingsData.categories.forEach(category => {
+      html += `
+        <div class="category-section mt-4">
+          <div class="category-header">
+            ${category.name}
+          </div>
+          <div class="category-desc">${category.description}</div>
+
+          <div>
+      `;
+
+      category.items.forEach(item => {
+        html += `
+          <div class="item-card">
+            ${item.price ? `
+              <div class="item-title-row">
+                <div class="item-title">${item.name}</div>
+                <div class="item-price">${item.price}</div>
+              </div>
+            ` : `
+              <div class="item-title">${item.name}</div>
+            `}
+            <div class="text-muted small">${item.description}</div>
+          </div>
+        `;
+      });
+
+      html += `
+          </div>
+        </div>
+      `;
+    });
+
+    container.innerHTML = html;
+  }
+
   // Initialize menu page
   async initMenuPage(menuType, containerId) {
     await this.loadMenuData();
-    
+
     if (menuType === 'breads') {
       this.renderBreadsMenu(containerId);
     } else if (menuType === 'drinks') {
       this.renderDrinksMenu(containerId);
+    } else if (menuType === 'wings') {
+      this.renderWingsMenu(containerId);
     }
   }
 }
@@ -131,5 +177,7 @@ document.addEventListener('DOMContentLoaded', function() {
     menuLoader.initMenuPage('breads', 'menu-content');
   } else if (currentPage.includes('/drinks') || currentPage.includes('drinks.html')) {
     menuLoader.initMenuPage('drinks', 'menu-content');
+  } else if (currentPage.includes('/wings') || currentPage.includes('wings.html')) {
+    menuLoader.initMenuPage('wings', 'menu-content');
   }
 }); 

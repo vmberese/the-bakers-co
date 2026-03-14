@@ -60,10 +60,12 @@ class ComponentLoader {
     if (this.isLocal) {
       template = template.replace(/\{\{breadsLink\}\}/g, 'breads.html');
       template = template.replace(/\{\{drinksLink\}\}/g, 'drinks.html');
+      template = template.replace(/\{\{wingsLink\}\}/g, 'wings.html');
       template = template.replace(/\{\{aboutLink\}\}/g, 'about.html');
     } else {
       template = template.replace(/\{\{breadsLink\}\}/g, 'breads');
       template = template.replace(/\{\{drinksLink\}\}/g, 'drinks');
+      template = template.replace(/\{\{wingsLink\}\}/g, 'wings');
       template = template.replace(/\{\{aboutLink\}\}/g, 'about');
     }
 
@@ -90,6 +92,7 @@ componentLoader.register('navigation', `
       <div class="navbar-nav ms-auto">
         <a class="nav-link {{breadsActive}}" href="{{basePath}}/{{breadsLink}}">Breads</a>
         <a class="nav-link {{drinksActive}}" href="{{basePath}}/{{drinksLink}}">Drinks</a>
+        <a class="nav-link {{wingsActive}}" href="{{basePath}}/{{wingsLink}}">Wings</a>
         <a class="nav-link {{aboutActive}}" href="{{basePath}}/{{aboutLink}}">About Us</a>
       </div>
     </div>
@@ -125,6 +128,7 @@ document.addEventListener('DOMContentLoaded', function() {
   const navData = {
     breadsActive: currentPage.includes('/breads') ? 'active' : '',
     drinksActive: currentPage.includes('/drinks') ? 'active' : '',
+    wingsActive: currentPage.includes('/wings') ? 'active' : '',
     aboutActive: currentPage.includes('/about') ? 'active' : ''
   };
   
