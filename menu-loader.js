@@ -120,7 +120,7 @@ class MenuLoader {
       html += `
         <div class="category-section mt-4">
           <div class="category-header">
-            ${category.name}
+            ${category.name} ${category.priceRange ? `<span class="category-price">${category.priceRange}</span>` : ''}
           </div>
           <div class="category-desc">${category.description}</div>
 

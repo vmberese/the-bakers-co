@@ -58,6 +58,7 @@
     "categories": [
       {
         "name": "Rice Meal",
+        "priceRange": "₱120",
         "description": "4 pcs chicken wings with rice.",
         "items": [
           {
