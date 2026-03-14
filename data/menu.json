@@ -58,13 +58,8 @@
     "categories": [
       {
         "name": "Rice Meal",
-        "description": "A satisfying solo meal to get you started.",
+        "description": "4 pcs chicken wings with rice.",
         "items": [
-          {
-            "name": "Rice Meal",
-            "price": "₱120",
-            "description": "4 pcs chicken wings + steamed rice. Choose 1 flavor."
-          },
           {
             "name": "Golden Honey Butter",
             "description": "Sweet, buttery glaze with a golden finish."
@@ -95,7 +90,7 @@
           {
             "name": "12 pcs",
             "price": "₱300",
-            "description": ""
+            "description": "Choose 3 flavors."
           }
         ]
       }
