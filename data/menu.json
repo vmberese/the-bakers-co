@@ -57,9 +57,14 @@
     "title": "Korean Wings",
     "categories": [
       {
-        "name": "Flavors",
-        "description": "All wings are double-fried for that perfect crunch.",
+        "name": "Rice Meal",
+        "description": "A satisfying solo meal to get you started.",
         "items": [
+          {
+            "name": "Rice Meal",
+            "price": "₱120",
+            "description": "4 pcs chicken wings + steamed rice. Choose 1 flavor."
+          },
           {
             "name": "Golden Honey Butter",
             "description": "Sweet, buttery glaze with a golden finish."
@@ -79,17 +84,6 @@
         ]
       },
       {
-        "name": "Rice Meal",
-        "description": "A satisfying solo meal to get you started.",
-        "items": [
-          {
-            "name": "Rice Meal",
-            "price": "₱120",
-            "description": "4 pcs chicken wings + steamed rice. Choose 1 flavor."
-          }
-        ]
-      },
-      {
         "name": "Chicken Platter",
         "description": "Shareable platters — mix and match your flavors.",
         "items": [
@@ -99,9 +93,9 @@
             "description": "Choose 2 flavors."
           },
           {
-            "name": "Party Pack · 12 pcs",
+            "name": "12 pcs",
             "price": "₱300",
-            "description": "Choose 3 flavors."
+            "description": ""
           }
         ]
       }
